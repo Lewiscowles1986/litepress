@@ -41,8 +41,9 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-	        "@php hooks/post-create-project-cmd.php"
+	        "@post-install-prompt"
         ],
+        "post-install-prompt": "@php ./hooks/post-create-project-cmd.php",
         "install:clear": "@php -r \"is_dir('public/wp/wp-content') && system('rm -fr public/wp/wp-content');\"",
         "install:core": "./vendor/bin/wp core install --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://litepress.test --title=WordPress",
         "install:db": "@php -r \"file_exists('public/content/db.php') || copy('public/content/plugins/sqlite-database-integration/db.copy','public/content/db.php');\"",
